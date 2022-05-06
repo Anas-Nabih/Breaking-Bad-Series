@@ -1,4 +1,4 @@
-class CharactersResponse {
+class Character {
   int? charId;
   String? name;
   String? birthday;
@@ -11,7 +11,7 @@ class CharactersResponse {
   String? category;
   List<int>? betterCallSaulAppearance;
 
-  CharactersResponse(
+  Character(
       {this.charId,
         this.name,
         this.birthday,
@@ -24,7 +24,7 @@ class CharactersResponse {
         this.category,
         this.betterCallSaulAppearance});
 
-  CharactersResponse.fromJson(Map<String, dynamic> json) {
+  Character.fromJson(Map<String, dynamic> json) {
     charId = json['char_id'];
     name = json['name'];
     birthday = json['birthday'];

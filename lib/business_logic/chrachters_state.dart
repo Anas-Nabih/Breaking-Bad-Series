@@ -1,6 +1,11 @@
 part of 'chrachters_cubit.dart';
 
 @immutable
-abstract class ChrachtersState {}
+abstract class CharactersState {}
 
-class ChrachtersInitial extends ChrachtersState {}
+class CharactersInitial extends CharactersState {}
+
+class CharactersLoaded extends CharactersState{
+  final List<Character> characters;
+  CharactersLoaded({required this.characters});
+}
