@@ -1,5 +1,6 @@
 import 'package:breaking_bad_series/data/models/CharacterResponse.dart';
 import 'package:breaking_bad_series/res/colors.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CharacterItem extends StatelessWidget {
@@ -11,7 +12,7 @@ class CharacterItem extends StatelessWidget {
     return Container(
       width: double.infinity,
       margin: EdgeInsetsDirectional.fromSTEB(12, 8, 12, 8),
-      padding: EdgeInsets.all(4),
+      padding: EdgeInsets.all(3),
       decoration: BoxDecoration(
         color: MColors.white,
         borderRadius: BorderRadius.circular(4)
@@ -20,11 +21,14 @@ class CharacterItem extends StatelessWidget {
         child: Container(
           color: MColors.grey,
           child: character.img!.isNotEmpty?
-          FadeInImage.assetNetwork(
+          CachedNetworkImage(
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,
-              placeholder: "assets/images/loadingDots.gif", image: character.img!)
+              imageUrl: character.img!,
+            placeholder: (context, url) => Image(image: AssetImage( "assets/images/loadingDots.gif")),
+
+          )
               : FlutterLogo()
           ,
         ),
