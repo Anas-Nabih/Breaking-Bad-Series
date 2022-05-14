@@ -1,3 +1,4 @@
+import 'package:breaking_bad_series/presentation/widgets/build_divider.dart';
 import 'package:breaking_bad_series/res/colors.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,7 @@ class CharacterDetails extends StatelessWidget {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(character.nickname!),
                   background: CachedNetworkImage(
+                    placeholder: (context, url) => Image.asset("assets/images/walterWhite.png"),
                       imageUrl: character.img!, fit: BoxFit.cover),
                 )
             ),
@@ -36,10 +38,20 @@ class CharacterDetails extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CharacterInfo(title: 'Job',info: character.nickname!,),
-                      CharacterInfo(title: 'Appeared in',info: character.nickname!,),
-                      CharacterInfo(title: 'Status',info: character.nickname!,),
-                      CharacterInfo(title: 'Actor / Actress',info: character.nickname!,),
+                      CharacterInfo(title: 'Job',info: character.occupation!.join(" / "),),
+                      BuildDivider(endIndent: 360),
+                      CharacterInfo(title: 'Appeared in',info: character.category!),
+                      BuildDivider(endIndent: 295),
+                      CharacterInfo(title: 'Season',info: character.appearance!.join(" - "),),
+                      BuildDivider(endIndent: 330),
+                      CharacterInfo(title: 'Status',info: character.status!,),
+                      BuildDivider(endIndent: 340),
+                      if(character.betterCallSaulAppearance!.isNotEmpty)
+                      CharacterInfo(title: 'Better Call Saul Season',info: character.betterCallSaulAppearance!.join(" / "),),
+                      if(character.betterCallSaulAppearance!.isNotEmpty)
+                      BuildDivider(endIndent: 200),
+                      CharacterInfo(title: 'Actor / Actress',info: character.name!,),
+                      BuildDivider(endIndent: 270),
                      ],
                   ),
                 )

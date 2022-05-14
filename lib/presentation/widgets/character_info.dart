@@ -9,35 +9,20 @@ class CharacterInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(bottom: 10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+    return RichText(
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
+      text: TextSpan(
         children: [
-          Row(
-            children: [
-              Text(
-                "$title : ",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700),
-              ),
-              Text(
-                info,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600),
-              ),
-            ],
+          TextSpan(
+            text:"$title :",
+            style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold)
           ),
-          SizedBox(
-            width: 40,
-            height: 10,
-            child: Divider(color: MColors.yellow, thickness: 2),
-          )
-        ],
+          TextSpan(
+            text:" $info",
+            style: TextStyle(fontSize: 16)
+          ),
+        ]
       ),
     );
   }
