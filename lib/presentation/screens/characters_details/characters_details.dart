@@ -1,7 +1,11 @@
+import 'package:breaking_bad_series/business_logic/chrachters_cubit.dart';
+import 'package:breaking_bad_series/business_logic/chrachters_state.dart';
 import 'package:breaking_bad_series/presentation/widgets/build_divider.dart';
+import 'package:breaking_bad_series/presentation/widgets/check_if_quotes_are_loaded.dart';
 import 'package:breaking_bad_series/res/colors.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../data/models/CharacterResponse.dart';
 import '../../widgets/character_info.dart';
@@ -52,6 +56,9 @@ class CharacterDetails extends StatelessWidget {
                       BuildDivider(endIndent: 200),
                       CharacterInfo(title: 'Actor / Actress',info: character.name!,),
                       BuildDivider(endIndent: 270),
+                      SizedBox(height:0.04 *mHeight,),
+                      // BlocBuilder<CharactersCubit,CharactersState>(
+                      //   builder: (context, state) =>checkIfQuotesAreLoaded(state:state) ,)
                      ],
                   ),
                 )

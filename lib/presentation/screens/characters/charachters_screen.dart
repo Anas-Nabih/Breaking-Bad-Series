@@ -1,11 +1,11 @@
 import 'package:breaking_bad_series/business_logic/chrachters_cubit.dart';
+import 'package:breaking_bad_series/business_logic/chrachters_state.dart';
 import 'package:breaking_bad_series/data/models/CharacterResponse.dart';
+import 'package:breaking_bad_series/presentation/widgets/characters_list.dart';
 import 'package:breaking_bad_series/presentation/widgets/no_data_found.dart';
 import 'package:breaking_bad_series/res/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../widgets/characters_list.dart';
 
 class CharactersScreen extends StatefulWidget {
   const CharactersScreen({Key? key}) : super(key: key);

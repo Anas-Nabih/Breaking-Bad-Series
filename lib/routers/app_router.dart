@@ -30,7 +30,10 @@ class AppRouter{
 
       default:
         final character = settings.arguments as Character;
-        return MaterialPageRoute(builder: (context) => CharacterDetails(character: character),);
+        return MaterialPageRoute(builder: (context) => BlocProvider(
+  create: (context) => CharactersCubit(charactersRepository: charactersRepository),
+    child: CharacterDetails(character: character),
+),);
 
     }
   }
