@@ -19,7 +19,7 @@ class DeathScreen extends StatelessWidget {
         itemCount: 10,
         itemBuilder: (context, index) =>Container(
           height: .2 * mHeight,width: double.infinity,
-          margin: EdgeInsets.symmetric(horizontal: 4.w),
+          margin: EdgeInsets.symmetric(horizontal: .04 * mWidth),
         ) ,),
     );
   }
