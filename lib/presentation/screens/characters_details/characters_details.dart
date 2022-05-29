@@ -1,11 +1,10 @@
 import 'package:breaking_bad_series/business_logic/chrachters_cubit.dart';
-import 'package:breaking_bad_series/business_logic/chrachters_state.dart';
+ import 'package:breaking_bad_series/data/repository/characters_repository.dart';
+import 'package:breaking_bad_series/data/web_services/character_web_services.dart';
 import 'package:breaking_bad_series/presentation/widgets/build_divider.dart';
-import 'package:breaking_bad_series/presentation/widgets/check_if_quotes_are_loaded.dart';
-import 'package:breaking_bad_series/res/colors.dart';
+ import 'package:breaking_bad_series/res/colors.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../data/models/CharacterResponse.dart';
 import '../../widgets/character_info.dart';
@@ -19,6 +18,7 @@ class CharacterDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     double mHeight = MediaQuery.of(context).size.height;
     double mWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: MColors.grey,
       body: Hero(
